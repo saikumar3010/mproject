@@ -1,0 +1,5 @@
+python3 -m venv myenv
+cd myenv
+cd bin
+Set-ExecutionPolicy RemoteSigned -Scope Process
+.\Activate.ps1 
