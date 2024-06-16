@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+           
+        </ul>
+    </nav>
+    <div class="wrapper">
+        <h1>Enter Your Data</h1>
+        <form onsubmit="return validateForm();" method="post" action="{{ url_for('predict') }}">
+            <div class="input-box">
+                <label for="loanamount">Loan Amount:</label>
+                <input type="number" id="loanamount" name="loanamount" required>
+                <span class="error" id="loanamountError"></span>
+            </div>
+            <div class="input-box">
+                <label for="hasexistingloan">Existing Loan:</label>
+                <select id="hasexistingloan" name="hasexistingloan" onchange="toggleExistingLoanAmount()">
+                    <option value="">Please select</option>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+                <span class="error" id="hasexistingloanError"></span>
+            </div>
+            <div class="input-box" style="display:none;" id="existingloanamountbox">
+                <label for="existingloanamount">Existing Loan Amount:</label>
+                <input type="number" id="existingloanamount" name="existingloanamount" step="0.01">
+                <span class="error" id="existingloanamountError"></span>
+            </div>
+            <div class="input-box">
+                <label for="interestrate">Interest Rate (%):</label>
+                <input type="number" id="interestrate" name="interestrate" required>
+                <span class="error" id="interestrateError"></span>
+            </div>
+            <div class="input-box">
+                <label for="Year">Year:</label>
+                <input type="number" id="Year" name="Year" required>
+                <span class="error" id="yearError"></span>
+            </div>
+            <div class="input-box">
+                <label for="tenure">Tenure (months):</label>
+                <input type="number" id="tenure" name="tenure" required>
+                <span class="error" id="tenureError"></span>
+            </div>
+            <div class="input-box">
+                <label for="familysize">Family Size:</label>
+                <input type="number" id="familysize" name="familysize" required>
+                <span class="error" id="familysizeError"></span>
+            </div>
+            <div class="input-box">
+                <label for="crop">Crop Being Grown:</label>
+                <select id="crop" name="crop">
+                    <option value="">Please select</option>
+                    <option value="paddy">Paddy</option>
+                    <option value="maize">Maize</option>
+                    <option value="bengal gram">Bengal gram</option>
+                    <option value="groundnut">Groundnut</option>
+                    <option value="chilli">Chilli</option>
+                </select>
+                <span class="error" id="cropError"></span>
+            </div>
+            <div class="input-box">
+                <label for="area">Area under cultivation (acres):</label>
+                <input type="number" id="area" name="area" required>
+                <span class="error" id="areaError"></span>
+            </div>
+            <div class="input-box">
+                <label for="matemp">Maximum temperature:</label>
+                <input type="number" id="matemp" name="matemp" step="0.1" required>
+                <span class="error" id="matempError"></span>
+            </div>
+            <div class="input-box">
+                <label for="mitemp">Minimum temperature:</label>
+                <input type="number" id="mitemp" name="mitemp" step="0.1" required>
+                <span class="error" id="mitempError"></span>
+            </div>
+            <div class="input-box">
+                <label for="district">District Name:</label>
+                <select id="district" name="district" required>
+                    <option value="">Please select</option>
+                    {% for district in ["ADILABAD", "BHADRADRI", "HYDERABAD", "JAGTIAL", "JANGAON", "JAYASHANKAR", "JOGULAMBA", "KAMAREDDY", "KARIMNAGAR", "KHAMMAM", "KOMARAM BHEEM", "MAHABUBABAD", "MAHABUBNAGAR", "MANCHERIAL", "MEDAK", "MEDCHAL MALKAJG", "NAGARKURNOOL", "NALGONDA", "NIRMAL", "NIZAMABAD", "PEDDAPALLI", "RAJANNA", "RANGAREDDY", "SANGAREDDY", "SIDDIPET", "SURYAPET", "VIKARABAD", "WANAPARTHY", "WARANGAL RURAL", "WARANGAL URBAN", "YADADRI"] %}
+                        <option value="{{ district }}">{{ district }}</option>
+                    {% endfor %}
+                </select>
+                <span class="error" id="districtError"></span>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            var isValid = true;
+            var inputs = document.querySelectorAll('input[required], select[required]');
+            inputs.forEach(function(input) {
+                var errorSpan = input.nextElementSibling;
+                if (input.type === 'number' && (input.value <= 0)) {
+                    errorSpan.textContent = 'Please enter a valid positive number';
+                    isValid = false;
+                } else if (input.tagName.toLowerCase() === 'select' && input.value === '') {
+                    errorSpan.textContent = 'Please make a selection';
+                    isValid = false;
+                } else {
+                    errorSpan.textContent = '';
+                }
+            });
+            return isValid;
+        }
+
+        function toggleExistingLoanAmount() {
+            var hasLoan = document.getElementById('hasexistingloan').value;
+            var loanAmountBox = document.getElementById('existingloanamountbox');
+            loanAmountBox.style.display = (hasLoan === 'yes') ? 'block' : 'none';
+            document.getElementById('existingloanamount').required = (hasLoan === 'yes');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleExistingLoanAmount();
+        });
+    </script>
+</body>
+</html>

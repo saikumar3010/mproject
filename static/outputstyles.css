@@ -1,0 +1,90 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background: url('bg.jpg') no-repeat center center fixed; 
+    background-size: cover;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: #fff;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Container Styling */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Styling for the canvas */
+#confidenceChart {
+    width: 500px; /* Set width to 500px */
+    height: 500px; /* Set height to 500px */
+    margin: 20px auto; /* Centers the chart horizontally */
+}
+
+h1 {
+    margin-top: 0;
+}
+
+/* Output Data Styling */
+#output p {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+/* Button to go back */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+.dynamic-value {
+    font-size: 24px; /* Set the font size larger than the general paragraph text */
+    color: antiquewhite;
+    font-weight: bold;
+}
+
+a:hover {
+    background: #218838;
+}

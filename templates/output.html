@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submission Output</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='outputstyles.css') }}">
+    <!-- Ensure Chart.js is correctly included -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Thank You for Your Submission!</h1>
+        <p>Your details have been submitted successfully.</p>
+        <div id="output">
+            <p><strong>Crop Being Grown:</strong> <span class="dynamic-value">{{ crop }}</span></p>
+<p><strong>Area (acres):</strong> <span class="dynamic-value">{{ area }}</span></p>
+<p><strong>Rainfall(mm):</strong> <span class="dynamic-value">{{ rainfall }}</span></p>
+<p><strong>Predicted Yield (kg):</strong> <span class="dynamic-value">{{ yield1 }}</span></p>
+<p><strong>Total Income (₹):</strong> <span class="dynamic-value">{{ "%.2f"|format(total_income) }}</span></p>
+<p><strong>Estimated Profit After Tax Deduction (₹):</strong> <span class="dynamic-value">{{ "%.2f"|format(net_profit) }}</span></p>
+<p><strong>Predicted Verdict:</strong> <span class="dynamic-value">{{ prediction_text }}</span></p>
+<p><strong>Top reason:</strong> <span class="dynamic-value">{{ top_reason }}</span></p>
+
+            <canvas id="confidenceChart"></canvas>
+        </div>
+
+        <a href="{{ url_for('dashboard') }}">Go Back to Form</a>
+        <a href="{{ url_for('logout') }}">Press here to logout</a>
+    </div>
+    
+
+    <script>
+        var ctx = document.getElementById('confidenceChart').getContext('2d');
+        var confidenceChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['No', 'Yes'],
+                datasets: [{
+                    data: [{{ no_prob }}, {{ yes_prob }}],
+                    backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false, // Disables responsiveness to adhere to the set dimensions
+                legend: {
+                    position: 'top',
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'index',
+                    intersect: false,
+                }
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>

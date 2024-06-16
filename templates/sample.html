@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Form</title>
+    <!-- Use url_for to link stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <!-- If you have a route named 'index' or similar, use url_for; otherwise, adjust according to your Flask app's routes -->
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+        </ul>
+    </nav>
+    <h1>Enter Your Data</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="crop">Crop Being Grown:</label><br>
+        <input type="text" id="crop" name="crop"><br>
+        <label for="crop">Rainfall:</label><br>
+        <input type="number" id="district_rainfall" name="rain"><br>
+        <label for="crop">Max. temp:</label><br>
+        <input type="number" id="matemp" name="matemp"><br>
+        <label for="crop">Min. temp:</label><br>
+        <input type="number" id="mitemp" name="mitemp"><br>
+        <label for="district">District Name:</label><br>
+        <input type="text" id="District" name="district"><br>
+        <button type="submit" onclick="window.location.href='output.html';">Submit</button>
+        <!--<label for="loan">Loan Amount:</label><br>
+        <input type="number" id="loan" name="loan"><br>
+        <label for="land">Land Area under Cultivation:</label><br>
+        <input type="number" id="land" name="land"><br>
+        <button type="submit">Submit</button>-->
+    </form>
+</body>
+</html>

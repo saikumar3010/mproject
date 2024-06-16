@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='farmerloginstyles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/farmer_login">Login</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="screen">
+            <div class="login-box">
+                <form class="login-form" method="POST" action="{{ url_for('login_farmer') }}">
+                    {{ form.hidden_tag() }}
+                    {% with messages = get_flashed_messages(category_filter=["error"]) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    <div class="form-group">
+                        {{ form.kisaan_id.label(for="KisaanID") }}
+                        {{ form.kisaan_id(id="KisaanID", class_="form-control", required=True) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password.label(for="password") }}
+                        {{ form.password(id="password", class_="form-control",  required=True) }}
+                    </div>
+                    <div class="login__submit">
+                        {{ form.submit(id="submit", class_="login-button") }}
+                    </div>
+                </form>
+                
+                <a class="register-link" href="{{ url_for('register_farmer') }}">Don't have an account? Sign Up</a>
+            </div>
+            <div class="screen__background">
+                <span class="screen_background_shape screen_background_shape1"></span>
+                <span class="screen_background_shape screen_background_shape2"></span>
+                <span class="screen_background_shape screen_background_shape3"></span>
+                <span class="screen_background_shape screen_background_shape4"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

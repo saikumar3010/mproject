@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='loginstyles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="login-box">
+            <form class="login-form" action="{{ url_for('register_user') }}" method="POST" onsubmit="return verifyPassword()">
+                {{ form.hidden_tag() }}
+                {% with messages = get_flashed_messages(category_filter=["error", "success"]) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {{ 'alert-success' if 'successful' in message else 'alert-danger' }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    {{ form.username(class_='form-control') }}
+                </div>
+                <div class="form-group">
+                    {{ form.password(class_='form-control', id='pswd') }}
+                    {{ form.confirm(class_='form-control', id='confirm_pswd') }}
+                    <span id="message" style="color: red;"></span>
+                </div>
+                {{ form.submit(class_='login-button') }}
+            </form>
+            
+            <div class="register-link">
+                Already have an account? <a href="{{ url_for('user_login') }}">Log In</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function verifyPassword() {  
+            var pw = document.getElementById("password").value;  
+    
+            if (pw == "") {  
+                document.getElementById("message").innerHTML = "<span style='color: Black; font-size: 16px; font-family: Arial;'>**Fill the password please!</span>";  
+                return false;  
+            }  
+    
+            if (pw.length < 8) {  
+                document.getElementById("message").innerHTML = "<span style='color: Black; font-size: 16px; font-family: Arial;'>**Password length must be at least 8 characters</span>";  
+                return false;  
+            }  
+    
+            if (pw.length > 19) {  
+                document.getElementById("message").innerHTML = "<span style='color: Black; font-size: 16px; font-family: Arial;'>**Password length must not exceed 19 characters</span>";  
+                return false;  
+            }  
+    
+            // Check for at least one uppercase letter
+            if (!/[A-Z]/.test(pw)) {
+                document.getElementById("message").innerHTML = "<span style='color: Black; font-size: 16px; font-family: Arial;'>**Password must contain at least one uppercase letter</span>";
+                return false;
+            }
+    
+            // Check for at least one special character
+            if (!/[!@#$%^&*(),.?":{}|<>]/.test(pw)) {
+                document.getElementById("message").innerHTML = "<span style='color: Black; font-size: 16px; font-family: Arial;'>**Password must contain at least one special character</span>";
+                return false;
+            }
+            
+            // Clear the error message if password is valid
+            document.getElementById("message").innerHTML = "";
+            
+            return true;
+        }
+    </script>
+    
+</body>
+</html>

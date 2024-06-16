@@ -1,0 +1,255 @@
+
+
+body{
+  display: flex;
+  flex-direction: column; /* Change to column to stack navbar and content */
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center;
+  min-height: 100vh;
+  background: url(bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 60px; /* Add padding to top to avoid navbar overlap */
+}
+
+.wrapper{
+  width: 420px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(9px);
+  color: #fff;
+  border-radius: 12px;
+  padding: 30px 40px;
+  margin-top: 20px; /* Ensure space between navbar and wrapper */
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.wrapper{
+  width: 420px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(9px);
+  color: #fff;
+  border-radius: 12px;
+  padding: 30px 40px;
+}
+.wrapper h1{
+  font-size: 36px;
+  text-align: center;
+}
+.wrapper .input-box{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  
+  margin: 30px 0;
+}
+
+.input-box input{
+  width: 100%;
+  height: 100%;
+  background: #2a3d5f; /* Updated background color */
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 40px;
+  font-size: 18px; /* Updated font size */
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+  color: rgba(255, 255, 255, 0.7); /* Slightly dim the placeholder for better focus on the input text */
+}
+
+.input-box i{
+  position: absolute;
+  right: 20px;
+  top: 30%;
+  transform: translate(-50%);
+  font-size: 20px;
+}
+
+.wrapper .remember-forgot{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+}
+
+.remember-forgot label input{
+  accent-color: #fff;
+  margin-right: 3px;
+}
+
+.remember-forgot a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover{
+  text-decoration: underline;
+}
+
+.wrapper .btn{
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+.wrapper .register-link{
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+
+}
+.register-link p a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.register-link p a:hover{
+  text-decoration: underline;
+}
+body{
+  margin: 0px;
+}
+main{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+h1{
+  text-align: center;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+  list-style-type: none;
+  background-color: hsl(0, 0%, 25%);
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  width: 100%; /* Full width */
+  position: fixed; /* Fix navbar to the top */
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure navbar is above other content */
+}
+
+.navbar li{
+  float: left;
+}
+
+.navbar a{
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px; /* Adjust padding as needed */
+  display: block;
+  text-align: center;
+}
+
+.navbar a:hover{
+  background-color: hsl(0, 0%, 10%);
+}
+.submit-btn {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 14px 20px; /* Top and bottom padding, left and right padding */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s ease; /* Smooth background color change on hover */
+}
+
+.submit-btn:hover {
+  background-color: #45a049; /* Darker shade of green on hover */
+}
+
+.submit-btn:focus {
+  outline: none; /* Removes outline on focus for a cleaner look */
+  box-shadow: 0 0 0 2px rgba(76,175,80,0.5); /* Optional: Adds a glow effect on focus */
+}
+/* Existing CSS rules... */
+
+/* Additional styles for select and visibility toggling */
+select {
+  width: 100%;
+  height: 50px;
+  background: #2a3d5f;
+  border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 40px;
+  font-size: 18px;
+  color: #fff;
+  padding: 15px;
+
+}
+
+select:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Removes the increment and decrement buttons */
+  margin: 0;
+}
+/* Existing CSS rules... */
+
+.input-box {
+  display: flex;
+  flex-direction: row; /* Align elements in a row */
+  justify-content: space-between; /* Space between label and input */
+  align-items: center; /* Align items vertically */
+  margin: 10px 0;
+}
+.error {
+  color: #ff0000; /* Red color for errors */
+  font-size: 0.9em; /* Slightly smaller text */
+  margin-top: 5px; /* Space above the error message */
+  display: block; /* Ensure it's on a new line */
+  font-weight: bold; /* Make it bold to catch attention */
+}
+.input-box label {
+  flex: 1;
+  margin-right: 10px; /* Space between label and input */
+}
+
+.input-box input, .input-box select {
+  flex: 2;
+  height: 35px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Lighter border for visibility */
+}
+
+/* Ensure consistency in appearance for all form elements */
+input, select {
+  background: #2a3d5f; /* Updated background color */
+  color: #fff; /* White text color for better readability */
+  border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%; /* Full width within its container */
+}
+

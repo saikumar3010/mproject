@@ -1,0 +1,238 @@
+body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background: url('bg2.jpg') no-repeat center center/cover; /* Background shorthand for cover and position */
+            padding-top: 60px; /* Space for navbar */
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            padding: 10px 0;
+            position: fixed; /* Fix navbar at the top */
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Higher index to be on top */
+			text-align: left;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align:left; /* Center the navbar items */
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-weight: bold;
+			font-family: 'Raleway', sans-serif;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .screen {        
+            background: linear-gradient(90deg, #82e747, #5f963f);        
+            position: relative;    
+            height: 600px;
+            width: 360px;    
+            box-shadow: 0px 0px 24px #03f838;
+        }
+
+        .screen__content {
+            z-index: 1;
+            position: relative;    
+            height: 100%;
+        }
+
+        .screen__background {        
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            -webkit-clip-path: inset(0 0 0 0);
+            clip-path: inset(0 0 0 0);    
+        }
+
+        .screen_background_shape {
+            transform: rotate(45deg);
+            position: absolute;
+        }
+
+        .screen_background_shape1 {
+            height: 520px;
+            width: 520px;
+            background: #FFF;    
+            top: -50px;
+            right: 120px;    
+            border-radius: 0 72px 0 0;
+        }
+
+        .screen_background_shape2 {
+            height: 220px;
+            width: 220px;
+            background: #50eb84;    
+            top: -172px;
+            right: 0;    
+            border-radius: 32px;
+        }
+
+        .screen_background_shape3 {
+            height: 540px;
+            width: 190px;
+            background: linear-gradient(270deg, #648a69, #22b35e);
+            top: -24px;
+            right: 0;    
+            border-radius: 32px;
+        }
+
+        .screen_background_shape4 {
+            height: 400px;
+            width: 200px;
+            background: #3bb328;    
+            top: 420px;
+            right: 50px;    
+            border-radius: 60px;
+        }
+
+        .login {
+            width: 320px;
+            padding: 30px;
+            padding-top: 156px;
+			box-shadow: none;
+        }
+
+        .login__field {
+            padding: 20px 0px;    
+            position: relative;    
+        }
+
+        .login__icon {
+            position: absolute;
+            top: 30px;
+            color: #7875B5;
+        }
+
+        .login__input {
+            border: none;
+            border-bottom: 2px solid #D1D1D4;
+            background: none;
+            padding: 10px;
+            padding-left: 24px;
+            font-weight: 700;
+            width: 75%;
+            transition: .2s;
+			border: 2px solid #D1D1D4; /* Add border to all sides */
+            border-radius: 5px;
+			
+        }
+		.input-container{
+			position:relative;
+			margin-bottom:25px;
+		}
+		.input-container label{
+			position:absolute;
+			top:0px;
+			left:0px;
+			font-size:16px;
+			color:#120f0fa5;	
+			transition: all 0.5s ease-in-out;
+		}
+		.input-container input{ 
+		  border:0;
+		  border-bottom:1px solid #555;  
+		  background:transparent;
+		  width:100%;
+		  padding:8px 0 5px 0;
+		  font-size:16px;
+		  color:#120f0fa5;
+		}
+		.input-container input:focus{ 
+		 border:none;	
+		 outline:none;
+		 border-bottom:1px solid #e74c3c;	
+		}
+		.input-container input:focus ~ label,
+		.input-container input:valid ~ label{
+		top:-12px;
+		font-size:12px;
+	
+}
+	
+
+        .login__submit {
+        
+            font-size: 14px;
+            margin-top: 30px;
+            padding: 16px 20px;
+            border-radius: 26px;
+            border: 1px solid #0ddd11;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            width: 20%;
+            color: #4C489D;
+            box-shadow: 0px 2px 2px #5C5696;
+            cursor: pointer;
+            transition: .2s;
+			 /* Change background color */
+            color: #82e747; /* Change text color */
+            border: none; /* Remove border */
+            border-radius: 26px; /* Keep it rounded */
+            box-shadow: none;
+        }
+
+        .button__icon {
+            margin-top: 20px;
+    		padding: 10px 20px;
+    		background: #28a745;
+    		color: white;
+    		border-radius: 5px;
+    		text-decoration: none;
+			cursor: pointer;
+    		transition: background 0.3s ease;
+        }
+		.social-login {    
+            position: absolute;
+            height: 140px;
+            width: 160px;
+            text-align: center;
+            bottom: 0px;
+            right: 0px;
+            color: #fff;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-login__icon {
+            padding: 20px 10px;
+            color: #fff;
+            text-decoration: none;    
+            text-shadow: 0px 0px 8px #7875B5;
+        }

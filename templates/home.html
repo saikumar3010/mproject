@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rainfall Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='indexstyles.css') }}">
+</head>
+
+<body>
+
+    <div class="c3" style> 
+        <p style="text-align: center; font-size:35px; font-family: sans-serif;font-weight: bold;" id="c3">District-wise Rainfall in Telangana</p>
+    </div> 
+
+    <nav class="navbar">
+        <ul>
+            <li> <span><a href="{{ url_for('home') }}">Home</a></span></li>
+            <li class="dropdown">  <button class="dropbtn">Login</button>
+                <div class="dropdown-content">
+                  <a href="{{ url_for('user_login') }}">Login as Banker</a>
+                  <a href="{{ url_for('login_farmer') }}">Login as Farmer</a>
+                </div><span></a></span></li>
+                <li> <span><a href="{{ url_for('default_calculator') }}">Default Calculator</a></span></li>
+
+            <h1 style="text-align: center;font-size: 35px;font-family: sans-serif;font-weight: bolder;color: cyan;">Weather-based Farmer Loan Default Predictor</h1>
+        </ul>
+    </nav>
+
+    <div id="wrapper">
+        
+        <div id = "c1"> 
+            <script>
+                function writeText(txt) {
+                  document.getElementById("desc").innerHTML = txt;
+                }
+            </script>
+
+            <img src="static/telangana_map.jpg" usemap="#Map" />
+            <map name="Map" id="Map" class="map_click">
+                <!-- Example area with data-img attribute instead of href -->
+                <area shape="rect" data-text="Narayanpet" coords="20,326,86,398" onmouseover="change_text(this)" data-img="/static/downloaded_images/mandaldata.jsp_s1_33.jpg" />
+                <area shape="rect" coords="326,166,443,214" data-text="Mulugu" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_32.jpg" />
+                <area shape="rect" coords="120,32,210,18"  data-text="Adilabad" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_1.jpg" />
+                <area shape="rect" coords="207,59,333,89" data-text="Kumaram Bheem- Asifabad" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_2.jpg" />
+                <area shape="rect" coords="202,86,337,123" data-text="Mancherial" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_3.jpg" />
+                <area shape="rect" coords="185,113,215,149" data-text="Jagtial" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_6.jpg" />
+                <area shape="rect" coords="96,93,191,117" data-text="Nirmal" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_4.jpg" />
+                <area shape="rect" coords="217,139,316,169" data-text="Peddapalli" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_7.jpg" />
+                <area shape="rect" coords="333,152,420,180" data-text="Jayashankar-Bhupalpally" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_8.jpg" />
+                <area shape="rect" coords="393,243,467,286" data-text="Bhadradri-Kothagudem" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_9.jpg" />
+                <area shape="rect" coords="344,317,410,338" data-text="Khammam" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_31.jpg" />
+                <area shape="rect" coords="323,261,373,295" data-text="Mahabubabad" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_10.jpg" />
+                <area shape="rect" coords="301,320,340,354" data-text="Suryapet" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_30.jpg" />
+                <area shape="rect" coords="227,337,291,380" data-text="Nalgonda" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_29.jpg" />
+                <area shape="rect" coords="161,389,222,432" data-text="Nagarkurnool" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_28.jpg" />
+                <area shape="rect" coords="107,407,152,427" data-text="Wanaparthy" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_27.jpg" />
+                <area shape="rect" coords="67,428,109,460" data-text="Jogulamba-Gadwal" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_26.jpg" />
+                <area shape="rect" coords="89,349,151,381" data-text="Mahabubnagar" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_25.jpg" />
+                <area shape="rect" coords="121,307,183,341" data-text="Rangareddy" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_23.jpg" />
+                <area shape="rect" coords="60,300,106,325" data-text="Vikarabad" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_24.jpg" />
+                <area shape="rect" coords="146,270,177,288" data-text="Medchal-Malkajgiri" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_21.jpg" />
+                <area shape="rect" coords="157,305,175,325" data-text="Hyderabad" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_22.jpg" />
+                <area shape="rect" coords="195,218,243,243" data-text="Siddipet" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_18.jpg" />
+                <area shape="rect" coords="261,224,290,251" data-text="Jangaon" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_19.jpg" />
+                <area shape="rect" coords="184,171,230,195" data-text="Rajanna-Siricilla" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_14.jpg" />
+                <area shape="rect" coords="247,181,293,206" data-text="Karimnagar" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_13.jpg" />
+                <area shape="rect" coords="128,218,176,248" data-text="Medak" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_17.jpg" />
+                <area shape="rect" coords="64,247,117,271" data-text="Sangareddy" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_16.jpg" />
+                <area shape="rect" coords="95,177,153,198" data-text="Kamareddy" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_15.jpg" />
+                <area shape="rect" coords="107,134,174,168" data-text="Nizamabad" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_5.jpg" />
+                <area shape="rect" coords="308,210,345,233" data-text="Hanumakonda" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_12.jpg" />
+                <area shape="rect" coords="350,226,380,251" data-text="Warangal" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_11.jpg" />
+                <area shape="rect" coords="185,266,215,290" data-text="Yadadri-Bhongir" onmouseover="change_text(this)" onmouseout="revert_txt(area)" data-img="/static/downloaded_images/mandaldata.jsp_s1_20.jpg" />
+                <!-- Add the rest of your area elements here with data-img attributes -->
+            </map>
+        </div>
+        
+        <div id = "c2">
+            <p id="districtNameDisplay"></p>
+            <img id="image-display" src="" width="600" height="500"  \>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('#Map area').forEach(area => {
+                area.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default action of the area
+                    var imgSrc = this.getAttribute('data-img'); // Get the image source from data-img attribute
+                    var displaySection = document.getElementById('image-display-section');
+                    var displayImage = document.getElementById('image-display');
+
+                    displayImage.src = imgSrc;
+                    displaySection.style.display = 'block'; 
+                });
+            });
+        });
+
+        function change_text(area) {
+            var textToShow = area.getAttribute('data-text'); // Get the data-text attribute
+            document.getElementById('districtNameDisplay').innerHTML = textToShow; // Update the new p element's content
+            document.getElementById('c2').style.display = 'block'; // Show the c2 content
+}
+        function revert_txt(area) {
+            var textToShow = "Hover over a district to see its name here."; // Get the data-text attribute
+            document.getElementById('hiddenText').innerHTML = textToShow; // Update the c3 div's content
+        }
+    </script>
+</body>
+
+</html>
